@@ -1,0 +1,23 @@
+﻿<Page x:Class="EFCore_LibrarySystem.Views.AdminLoginView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EFCore_LibrarySystem.Views"
+      xmlns:material ="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="384" d:DesignWidth="700"
+      Title="AdminLoginView">
+
+    <Grid Background="#27376B">
+        <material:PackIcon Foreground="#ffff" Kind="Person" Height="129" Width="196" HorizontalAlignment="Center" />
+
+        <TextBlock Text="Name" Foreground="Black" FontSize="22" Height="30" Width="60" Margin="200,134,440,220" RenderTransformOrigin="0.527,0.267" ></TextBlock>
+        <TextBox Text="{Binding Admin.AdminName}" Background="White" FontSize="15" Height="30" Width="300" Margin="200,169,200,185" ></TextBox>
+        <TextBlock Text="Password" Foreground="Black" FontSize="22" Height="30" Width="120" Margin="200,212,380,142" ></TextBlock>
+        <TextBox Text="{Binding Admin.Password}" Background="White" FontSize="15" Height="30" Width="300" Margin="200,247,200,107" ></TextBox>
+
+        <Button Command="{Binding LoginCommand}" Height="40" Content="Login" FontSize="23" Width="200" Margin="250,304,250,40" ></Button>
+
+    </Grid>
+</Page>
