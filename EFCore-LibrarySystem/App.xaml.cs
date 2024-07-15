@@ -30,6 +30,8 @@ public partial class App : Application
         MainContainer.RegisterSingleton<MainViewModel>();
         MainContainer.RegisterSingleton<AdminLoginViewModel>();
         MainContainer.RegisterSingleton<LibraryMainViewModel>();
+        MainContainer.RegisterSingleton<LibraryMenyuViewModel>();
+        MainContainer.RegisterSingleton<BookMenyuViewModel>();
 
     }
 
@@ -38,6 +40,8 @@ public partial class App : Application
         MainContainer.RegisterSingleton<MainWindow>();
         MainContainer.RegisterSingleton<AdminLoginView>();
         MainContainer.RegisterSingleton<LibraryMainView>();
+        MainContainer.RegisterSingleton<LibraryMenyuView>();
+        MainContainer.RegisterSingleton<BookMenyuView>();
 
     }
 

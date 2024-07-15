@@ -5,5 +5,5 @@ namespace EFCore_LibrarySystem.Services;
 
 public interface INavigationService
 {
-    void Navigate<TView, TViewModel>() where TView : Page where TViewModel : ViewModel;
+    void Navigate<TView, TViewModel>(Page CurenPageSelect) where TView : Page where TViewModel : ViewModel;
 }

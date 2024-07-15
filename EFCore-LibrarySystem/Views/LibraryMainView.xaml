@@ -19,16 +19,16 @@
 
         <StackPanel Background="#373e43">
             <StackPanel >
-                <material:PackIcon Kind="Library" Width="131" Height="100" Margin="5"/>
+                <material:PackIcon Foreground="White" Kind="Library" Width="131" Height="100" Margin="5"/>
             </StackPanel>
-            <Button Margin="0 2" Height="40" Width="130" >
+            <Button Margin="0 2" Height="40" Width="130" Command="{Binding LibraryMenyuCommand}" >
                 <StackPanel Orientation="Horizontal" Width="118" Height="35" Margin="-10 0">
                     <material:PackIcon Kind="Library" Width="20" Height="20" VerticalAlignment="Center" Margin="5"/>
-                    <TextBlock  Text="Library" FontSize="17" Padding="0 6"/>
+                    <TextBlock Text="Library" FontSize="17" Padding="15 5"/>
                 </StackPanel>
             </Button>
 
-            <Button Margin="0 2" Height="40" Width="130" Command="{Binding DriversCommand}">
+            <Button Margin="0 2" Height="40" Width="130" Command="{Binding BookMenyuCommand}">
                 <StackPanel Orientation="Horizontal" Width="118" Height="35" Margin="-10 0">
                     <material:PackIcon Kind="Book" Width="20" Height="20" VerticalAlignment="Center" Margin="5"/>
                     <TextBlock  Text="Books" FontSize="17" Padding="15 5" Width="87"/>
@@ -52,7 +52,7 @@
         </StackPanel>
 
 
-        <Frame  Grid.Column="1" />
+        <Frame Content="{Binding CurrentPage2}" Height="384" Width="560" Grid.Column="1" NavigationUIVisibility="Hidden" />
 
     </Grid>
 </Page>
