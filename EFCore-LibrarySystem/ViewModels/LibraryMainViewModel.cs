@@ -10,8 +10,6 @@ namespace EFCore_LibrarySystem.ViewModels;
 public class LibraryMainViewModel : ViewModel , INotifyPropertyChanged
 {
 
-    //public MainViewModel mainView = new();
-
     private Page? currentPage2;
     public Page? CurrentPage2
     {
@@ -37,12 +35,14 @@ public class LibraryMainViewModel : ViewModel , INotifyPropertyChanged
 
     private void BookMenyuClick(object? obj)
     {
-        NavigationService.Navigate<BookMenyuView, BookMenyuViewModel>(CurrentPage2!);
+        CurrentPage2 = App.MainContainer.GetInstance<BookMenyuView>();
+        CurrentPage2.DataContext = App.MainContainer.GetInstance<BookMenyuViewModel>();
     }
 
     private void LibraryMenyuClick(object? obj)
     {
-        NavigationService.Navigate<LibraryMenyuView, LibraryMenyuViewModel>(CurrentPage2!);
+        CurrentPage2 = App.MainContainer.GetInstance<LibraryMenyuView>();
+        CurrentPage2.DataContext = App.MainContainer.GetInstance<LibraryMenyuViewModel>();
     }
 
 

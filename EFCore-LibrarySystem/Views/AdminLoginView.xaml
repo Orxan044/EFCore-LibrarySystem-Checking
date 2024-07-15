@@ -9,8 +9,8 @@
       d:DesignHeight="384" d:DesignWidth="700"
       Title="AdminLoginView">
 
-    <Grid Background="#27376B">
-        <material:PackIcon Foreground="#ffff" Kind="Person" Height="129" Width="196" HorizontalAlignment="Center" />
+    <Grid Background="#DCE5D2">
+        <material:PackIcon Foreground="Black" Kind="Person" Height="129" Width="196" HorizontalAlignment="Center" />
 
         <TextBlock Text="Name" Foreground="Black" FontSize="22" Height="30" Width="60" Margin="200,134,440,220" RenderTransformOrigin="0.527,0.267" ></TextBlock>
         <TextBox Text="{Binding Admin.AdminName}" Background="White" FontSize="15" Height="30" Width="300" Margin="200,169,200,185" ></TextBox>

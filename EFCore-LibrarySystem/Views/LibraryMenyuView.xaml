@@ -8,7 +8,20 @@
       d:DesignHeight="384" d:DesignWidth="560"
       Title="LibraryMenyuView">
 
-    <Grid Background="#27376B">
+    <Grid Background="#DCE5D2">
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="220" ></RowDefinition>
+        </Grid.RowDefinitions>
         
+        <StackPanel  Height="130" Width="220" Margin="30,17,310,17" >
+            <TextBlock Text ="Books" Padding="70 0" Background="#c81e18" FontSize="25" FontFamily="Comic Sans MS" ></TextBlock>
+            <TextBlock Text ="30" Padding="85 20 " Background="#f54248" FontSize="35"  Height="95" ></TextBlock>
+        </StackPanel>
+        <StackPanel Background="Red" Height="130" Width="220" Margin="310,17,30,17" >
+            <TextBlock Text ="Authors" Padding="60 0" Background="#d35400" FontSize="25" FontFamily="Comic Sans MS" ></TextBlock>
+            <TextBlock Text ="30" Padding="85 20 " Background="#e87e04" FontSize="35"  Height="95" ></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

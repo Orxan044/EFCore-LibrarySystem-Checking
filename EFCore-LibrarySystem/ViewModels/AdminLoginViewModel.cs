@@ -31,8 +31,12 @@ public class AdminLoginViewModel : ViewModel
         {
             if(Admin!.AdminName == SerachAdmin.AdminName && Admin!.Password == SerachAdmin.Password)
             {
-                MainViewModel main = new MainViewModel(NavigationService);
-                NavigationService.Navigate<LibraryMainView, LibraryMainViewModel>(main.CurrentPage!);
+                NavigationService.Navigate<LibraryMainView, LibraryMainViewModel>();
+                //App.Current.MainWindow = new LibraryMainView();
+                //--------------------------------------------------------------------------------
+                //var newMainWindow = App.Current.MainWindow;
+                //newMainWindow.DataContext = new LibraryMainViewModel(NavigationService);
+                //newMainWindow.Show();
             }
         }
     
