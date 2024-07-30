@@ -5,23 +5,32 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EFCore_LibrarySystem.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="384" d:DesignWidth="560"
+      d:DesignHeight="500" d:DesignWidth="900"
       Title="LibraryMenyuView">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" >
 
-    <Grid Background="#DCE5D2">
+        <Grid>
+            <ListView ItemsSource="{Binding Books}" x:Name="ListView1" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="Author Id" DisplayMemberBinding="{Binding AuthoursId}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="Reads Count" DisplayMemberBinding="{Binding ReadsCount}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="auto"></GridViewColumn>
 
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="220" ></RowDefinition>
-        </Grid.RowDefinitions>
-        
-        <StackPanel  Height="130" Width="220" Margin="30,17,310,17" >
-            <TextBlock Text ="Books" Padding="70 0" Background="#c81e18" FontSize="25" FontFamily="Comic Sans MS" ></TextBlock>
-            <TextBlock Text ="30" Padding="85 20 " Background="#f54248" FontSize="35"  Height="95" ></TextBlock>
-        </StackPanel>
-        <StackPanel Background="Red" Height="130" Width="220" Margin="310,17,30,17" >
-            <TextBlock Text ="Authors" Padding="60 0" Background="#d35400" FontSize="25" FontFamily="Comic Sans MS" ></TextBlock>
-            <TextBlock Text ="30" Padding="85 20 " Background="#e87e04" FontSize="35"  Height="95" ></TextBlock>
-        </StackPanel>
-    </Grid>
+                        <GridViewColumn Header="Delete" Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Background="Red" BorderBrush="Red"  Command="{Binding ElementName=ListView1, Path=DataContext.DeleteBookCommand}" CommandParameter="{Binding Id}" Width="80"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </ScrollViewer>
+
+
 </Page>

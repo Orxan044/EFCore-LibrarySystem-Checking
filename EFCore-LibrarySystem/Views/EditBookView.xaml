@@ -1,4 +1,4 @@
-﻿<Page x:Class="EFCore_LibrarySystem.Views.BookMenyuView"
+﻿<Page x:Class="EFCore_LibrarySystem.Views.EditBookView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,12 @@
       xmlns:local="clr-namespace:EFCore_LibrarySystem.Views"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900"
-      Title="BookMenyuView">
+      Title="EditBookView">
 
     <Grid Background="White">
+        <ComboBox ItemsSource="{Binding Path=Books}" SelectedItem="{Binding Path=NewBook}"     Height="50" Margin="0,28,667,0" VerticalAlignment="Top" >
+            
+        </ComboBox>
         <StackPanel HorizontalAlignment="Center" Width="400">
 
             <TextBlock  Text="Name" FontSize="25" Height="40" Width="100" Margin="5 0" />
@@ -23,7 +26,7 @@
             <TextBlock  Text="Quantity" FontSize="25" Height="40" Width="130" Margin="5 5" />
             <TextBox FontSize="16" Text="{Binding NewBook.Quantity}"   Margin="5 0" Background="White" Height="30" Width="200"  />
 
-            <Button Command="{Binding AddBookCommand}" Margin="30" Width="150" Content="Add Book" FontSize="18" ></Button>
+            <Button Command="{Binding SaveBookCommand}" Margin="30" Width="150" Content="Save Book" FontSize="18" ></Button>
         </StackPanel>
     </Grid>
 </Page>

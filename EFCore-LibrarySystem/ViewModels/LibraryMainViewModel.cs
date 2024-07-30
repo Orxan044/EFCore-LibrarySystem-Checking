@@ -21,16 +21,32 @@ public class LibraryMainViewModel : ViewModel , INotifyPropertyChanged
     
     public RelayCommand LibraryMenyuCommand { get; set; }
     public RelayCommand BookMenyuCommand { get; set; }
+    public RelayCommand EditBookCommand { get; set; }
+    public RelayCommand ExitCommand { get; set; }
     public LibraryMainViewModel(INavigationService navigationService)
     {
         NavigationService = navigationService;
         LibraryMenyuCommand = new RelayCommand(LibraryMenyuClick);
         BookMenyuCommand = new RelayCommand(BookMenyuClick);
+        EditBookCommand = new RelayCommand(EditBookClick);
+        ExitCommand = new RelayCommand(ExitClick);
 
         //-------------------------------------------------
         CurrentPage2 = App.MainContainer.GetInstance<LibraryMenyuView>();
         CurrentPage2.DataContext = App.MainContainer.GetInstance<LibraryMenyuViewModel>();
         //-------------------------------------------------
+    }
+
+    private void EditBookClick(object? obj)
+    {
+        CurrentPage2 = App.MainContainer.GetInstance<EditBookView>();
+        CurrentPage2.DataContext = App.MainContainer.GetInstance<EditBookViewModel>();
+    }
+
+    private void ExitClick(object? obj)
+    {
+        System.Windows.Application.Current.MainWindow.Close();
+        Environment.Exit(0);
     }
 
     private void BookMenyuClick(object? obj)

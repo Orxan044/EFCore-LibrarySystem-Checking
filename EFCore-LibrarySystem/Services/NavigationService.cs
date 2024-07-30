@@ -13,11 +13,12 @@ public class NavigationService : INavigationService
 {
     public void Navigate<TView, TViewModel>() where TView : Page where TViewModel : ViewModel
     {
-        var mainVm = App.Current.MainWindow.DataContext as MainViewModel;
-        if (mainVm is not null)
+        var mainVm1 = System.Windows.Application.Current.MainWindow.DataContext as MainViewModel;
+        var mainVm2 = System.Windows.Application.Current.MainWindow.DataContext as LibraryMainViewModel;
+        if (mainVm1 is not null || mainVm2 is not null)
         {
-            mainVm!.CurrentPage = App.MainContainer.GetInstance<TView>();
-            mainVm.CurrentPage.DataContext = App.MainContainer.GetInstance<TViewModel>();
+            mainVm1!.CurrentPage = App.MainContainer.GetInstance<TView>();
+            mainVm1.CurrentPage.DataContext = App.MainContainer.GetInstance<TViewModel>();
 
         }
     }

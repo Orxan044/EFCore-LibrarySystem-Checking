@@ -4,6 +4,7 @@ using EFCore_LibrarySystem.Views;
 using SimpleInjector;
 using EFCore_LibrarySystem.Services;
 using EFCore_LibrarySystem.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCore_LibrarySystem;
 
@@ -16,32 +17,36 @@ public partial class App : Application
         AddOtherServices();
         AddViews();
         AddViewModels();
+
+        MainContainer.Verify();
     }
 
-    private void AddOtherServices()
+    private static void AddOtherServices()
     {
         MainContainer.RegisterSingleton<AdminDbContext>();
         MainContainer.RegisterSingleton<LibraryDbContext>();
         MainContainer.RegisterSingleton<INavigationService,NavigationService>();
     }
 
-    private void AddViewModels()
-    {
+    private static void AddViewModels()
+    { 
         MainContainer.RegisterSingleton<MainViewModel>();
         MainContainer.RegisterSingleton<AdminLoginViewModel>();
         MainContainer.RegisterSingleton<LibraryMainViewModel>();
-        MainContainer.RegisterSingleton<LibraryMenyuViewModel>();
+        MainContainer.Register<LibraryMenyuViewModel>();
         MainContainer.RegisterSingleton<BookMenyuViewModel>();
+        MainContainer.RegisterSingleton<EditBookViewModel>();
 
     }
 
-    private void AddViews()
+    private static void AddViews()
     {
         MainContainer.RegisterSingleton<MainWindow>();
         MainContainer.RegisterSingleton<AdminLoginView>();
         MainContainer.RegisterSingleton<LibraryMainView>();
         MainContainer.RegisterSingleton<LibraryMenyuView>();
         MainContainer.RegisterSingleton<BookMenyuView>();
+        MainContainer.RegisterSingleton<EditBookView>();
 
     }
 
@@ -51,6 +56,8 @@ public partial class App : Application
         mainView.DataContext = MainContainer.GetInstance<MainViewModel>();
         mainView.Show();
         base.OnStartup(e);
+
+
     }
 
 }
