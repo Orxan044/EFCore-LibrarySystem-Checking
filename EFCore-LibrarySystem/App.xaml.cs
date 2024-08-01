@@ -2,9 +2,8 @@
 using System.Windows;
 using EFCore_LibrarySystem.Views;
 using SimpleInjector;
-using EFCore_LibrarySystem.Services;
 using EFCore_LibrarySystem.Data;
-using Microsoft.EntityFrameworkCore;
+using User_Panel.Services;
 
 namespace EFCore_LibrarySystem;
 

@@ -16,27 +16,18 @@ public class LibraryMenyuViewModel : ViewModel , INotifyPropertyChanged
 
     private readonly LibraryDbContext _dbContext;
     public RelayCommand DeleteBookCommand { get; set; }
-    public RelayCommand EditBookCommand { get; set; }
 
     private readonly INavigationService _navigationService;
     public LibraryMenyuViewModel(LibraryDbContext dbContext,INavigationService navigationService)
     {
         _dbContext = dbContext;
+        _navigationService = navigationService;
 
         Books = new ObservableCollection<Book>([.. _dbContext.Books]);
+        DeleteBookCommand = new RelayCommand(DeleteBookClick);        
         
-        DeleteBookCommand = new RelayCommand(DeleteBookClick);
-        EditBookCommand = new RelayCommand(EditBookClick);
-        
-        _navigationService = navigationService;
     }
 
-    private void EditBookClick(object? id)
-    {
-        LibraryMainViewModel mainView = new LibraryMainViewModel(_navigationService);
-        mainView.CurrentPage2 = App.MainContainer.GetInstance<EditBookView>();
-        mainView.CurrentPage2.DataContext = App.MainContainer.GetInstance<EditBookViewModel>();
-    }
 
     private void DeleteBookClick(object? id)
     {
